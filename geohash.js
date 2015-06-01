@@ -5,11 +5,11 @@
 
 BITS = [16, 8, 4, 2, 1];
 
-BASE32 = 											   "0123456789bcdefghjkmnpqrstuvwxyz";
-NEIGHBORS = { right  : { even :  "bc01fg45238967deuvhjyznpkmstqrwx" },
-							left   : { even :  "238967debc01fg45kmstqrwxuvhjyznp" },
-							top    : { even :  "p0r21436x8zb9dcf5h7kjnmqesgutwvy" },
-							bottom : { even :  "14365h7k9dcfesgujnmqp0r2twvyx8zb" } };
+BASE32 = 											  "0123456789bcdefghjkmnpqrstuvwxyz";
+NEIGHBORS = { right  : { even : "bc01fg45238967deuvhjyznpkmstqrwx" },
+							left   : { even : "238967debc01fg45kmstqrwxuvhjyznp" },
+							top    : { even : "p0r21436x8zb9dcf5h7kjnmqesgutwvy" },
+							bottom : { even : "14365h7k9dcfesgujnmqp0r2twvyx8zb" } };
 BORDERS   = { right  : { even : "bcfguvyz" },
 							left   : { even : "0145hjnp" },
 							top    : { even : "prxz" },
