@@ -5,15 +5,21 @@ And a byCenter = function(data, center_hash, limit)
 
 returns a array of objects sort by closist to the 
 
-```center_hash```
+```
+center_hash
+```
 
 limited to 
 
-```limit```  
+```
+limit
+```  
 
 when 
 
-```data``` 
+```
+data
+``` 
 
 is an array of objects with .latlng as a string like 
 
