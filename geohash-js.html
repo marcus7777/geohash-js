@@ -1,9 +1,10 @@
 <script type="text/javascript" src="geohash.js"></script>
 <script type="text/javascript">
-var byCenter = function(data, center, limit) { 
+var byCenter = function(data, center_hash, limit) { 
   console.log('byCenter');
   if (data.length > 1) {
-            // get map center
+    // get map center
+    var center = decodeGeoHash(center_hash);
     var LatM = center.latitude[1];
     var LngM = center.longitude[1];
         
