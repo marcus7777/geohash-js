@@ -12,7 +12,7 @@ var byCenter = function(data, center_hash, limit) {
       limit = 200;
     }
         
-    return data.sort(function (a, b) {
+    var toReturn = data.sort(function (a, b) {
       if ( a !== 0 && a.hasOwnProperty("LatLng") && b.hasOwnProperty("LatLng") ) {
         var latA = a.LatLng.split(',')[0], latB = b.LatLng.split(',')[0];
         var lngA = a.LatLng.split(',')[1], lngB = b.LatLng.split(',')[1];
@@ -25,7 +25,8 @@ var byCenter = function(data, center_hash, limit) {
         if (disA > disB) return 1;
       }
       return 0;
-    }).slice(0, limit);
+    });
+    return toReturn.slice(0, limit);
   } else {
     return data;
   }
