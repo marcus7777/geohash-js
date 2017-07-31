@@ -1,12 +1,14 @@
 <script type="text/javascript" src="geohash.js"></script>
 <script type="text/javascript">
-var byCenter = function(data, center_hash, limit) { 
-  console.log('byCenter');
+var byCenter = function(data, center_hash, limit) {
+  if (!limit) {
+    limit = 10
+  }
   if (data.length > 1) {
     // get map center
-    var center = decodeGeoHash(center_hash);
-    var LatM = center.latitude[1];
-    var LngM = center.longitude[1];
+    var center = decodeGeoHash(center_hash)
+    var LatM = center.latitude[1]
+    var LngM = center.longitude[1]
         
     if (+limit < 1) {
       limit = 200;
@@ -14,19 +16,19 @@ var byCenter = function(data, center_hash, limit) {
         
     var toReturn = data.sort(function (a, b) {
       if ( a !== 0 && a.hasOwnProperty("LatLng") && b.hasOwnProperty("LatLng") ) {
-        var latA = a.LatLng.split(',')[0], latB = b.LatLng.split(',')[0];
-        var lngA = a.LatLng.split(',')[1], lngB = b.LatLng.split(',')[1];
+        var latA = a.LatLng.split(',')[0], latB = b.LatLng.split(',')[0]
+        var lngA = a.LatLng.split(',')[1], lngB = b.LatLng.split(',')[1]
         
         // distance calculated by Pythagoras Theorem
-        disA = ((+LatM-(+latA))*(+LatM-(+latA)))+((+LngM-(+lngA))*(+LngM-(+lngA)));
-        disB = ((+LatM-(+latB))*(+LatM-(+latB)))+((+LngM-(+lngB))*(+LngM-(+lngB)));
-        // 
-        if (disA < disB) return -1;
-        if (disA > disB) return 1;
+        disA = ((+LatM-(+latA))*(+LatM-(+latA)))+((+LngM-(+lngA))*(+LngM-(+lngA)))
+        disB = ((+LatM-(+latB))*(+LatM-(+latB)))+((+LngM-(+lngB))*(+LngM-(+lngB)))
+        
+        if (disA < disB) return -1
+        if (disA > disB) return 1
       }
       return 0;
     });
-    return toReturn.slice(0, limit);
+    return toReturn.slice(0, limit)
   } else {
     return data;
   }
