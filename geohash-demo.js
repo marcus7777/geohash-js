@@ -11,8 +11,6 @@ else
 	var key = "ABQIAAAAS-9BXlmhAxzk5tMQ6009tBSuPyGFyYqpbBL0yyePbwJ9Yzj2TRSRG70K1wsky3JHARggI0ccbJ3Y0A";
 
 GScript('//maps.google.com/maps?file=api&amp;v=2&amp;key=' + key);
-GScript('./geohash.js');
-GScript('./labeledmarker.js');
 
 var ZOOMLEVELS = { 3: 7, 4 : 10, 5 : 12, 6 : 15, 7 : 17, 8 : 17 };
 	
