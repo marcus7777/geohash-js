@@ -1,6 +1,6 @@
 <script type="text/javascript" src="geohash.js"></script>
 <script type="text/javascript">
-var byCenter = function(data, center_hash, limit) {
+var byCenter = function(data, center_hash, limit, limitK) {
   function deg2rad(deg) {
     return deg * (Math.PI/180)
   }
@@ -20,6 +20,9 @@ var byCenter = function(data, center_hash, limit) {
 
   if (!limit) {
     limit = 10
+  }
+  if (!limitK) {
+    limitK = 100
   }
   if (data.length > 1) {
     // get map center
@@ -49,7 +52,18 @@ var byCenter = function(data, center_hash, limit) {
       }
       return 0
     });
-    return toReturn.slice(0, limit)
+    return toReturn.slice(0, limit).reduce(function(a, b) {
+      if ( b.hasOwnProperty("LatLng") ) {
+        var latB = b.LatLng.split(',')[0]
+        var lngB = b.LatLng.split(',')[1]
+
+        var disB = getDistanceFromLatLonInKm(+LatM,+LngM,+latB,+lngB)
+        if (disB < limitK) {
+          a.push(b)
+        }
+      }
+      return a
+    }, []);
   } else {
     return data;
   }
