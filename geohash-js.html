@@ -39,10 +39,15 @@ var byCenter = function(data, center_hash, limit) {
         var disA = getDistanceFromLatLonInKm(+LatM,+LngM,+latA,+lngA)
         var disB = getDistanceFromLatLonInKm(+LatM,+LngM,+latB,+lngB)
         
-        if (disA < disB) return -1
-        if (disA > disB) return 1
+        if (disA < disB) {
+          return -1
+        } else if (disA > disB) {
+          return 1
+        } else {
+          return 0
+        }
       }
-      return 0;
+      return 0
     });
     return toReturn.slice(0, limit)
   } else {
