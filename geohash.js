@@ -5,7 +5,7 @@
 
 var BITS = [16, 8, 4, 2, 1]
 
-var BASE32 = 			  "0123456789bcdefghjkmnpqrstuvwxyz"
+var BASE32 =        "0123456789bcdefghjkmnpqrstuvwxyz"
 var NEIGHBORS = { 
 	right  : { even : "bc01fg45238967deuvhjyznpkmstqrwx" },
 	left   : { even : "238967debc01fg45kmstqrwxuvhjyznp" },
